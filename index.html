@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAP Partner Sphere - Partner Workforce, Simplified</title>
+    
+    <!-- Fiori 3 Styling -->
+    <link rel="stylesheet" href="css/fiori-theme.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components/navigation.css">
+    <link rel="stylesheet" href="css/components/filter-bar.css">
+    <link rel="stylesheet" href="css/components/table.css">
+    <link rel="stylesheet" href="css/components/modal.css">
+    
+    <!-- SAP Icons (using Unicode) -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=72:wght@300;400;600;700&display=swap');
+    </style>
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="loginScreen" class="login-screen">
+        <div class="login-container">
+            <div class="login-header">
+                <h1 class="sap-logo">SAP Partner Sphere</h1>
+                <p class="tagline">Partner Workforce, Simplified</p>
+            </div>
+            <div class="login-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" class="fiori-input" placeholder="Enter username">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" class="fiori-input" placeholder="Enter password">
+                </div>
+                <div class="form-group">
+                    <label for="role">Role</label>
+                    <select id="role" class="fiori-select">
+                        <option value="admin">Admin</option>
+                        <option value="manager">SAP Manager/Lead</option>
+                        <option value="employee">Partner Employee</option>
+                        <option value="viewer">Viewer</option>
+                    </select>
+                </div>
+                <button id="loginBtn" class="fiori-button fiori-button-primary">Login</button>
+                <div id="loginError" class="error-message" style="display: none;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Application -->
+    <div id="mainApp" class="main-app" style="display: none;">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-left">
+                <button id="menuToggle" class="menu-toggle">☰</button>
+                <h1 class="app-title">SAP Partner Sphere</h1>
+                <span class="app-tagline">Partner Workforce, Simplified</span>
+            </div>
+            <div class="header-right">
+                <span id="userInfo" class="user-info"></span>
+                <button id="logoutBtn" class="fiori-button fiori-button-transparent">Logout</button>
+            </div>
+        </header>
+
+        <div class="app-body">
+            <!-- Side Navigation -->
+            <nav id="sideNav" class="side-nav">
+                <ul class="nav-list">
+                    <li class="nav-item active" data-module="employee-database">
+                        <span class="nav-icon">👥</span>
+                        <span class="nav-text">Employee Database</span>
+                    </li>
+                    <li class="nav-item" data-module="employee-skillset">
+                        <span class="nav-icon">🎯</span>
+                        <span class="nav-text">Employee Skillset</span>
+                    </li>
+                    <li class="nav-item" data-module="goals-kpis">
+                        <span class="nav-icon">📊</span>
+                        <span class="nav-text">Goals & KPIs</span>
+                    </li>
+                    <li class="nav-item" data-module="interviews">
+                        <span class="nav-icon">💼</span>
+                        <span class="nav-text">Interviews</span>
+                    </li>
+                    <li class="nav-item" data-module="onboarding-kt">
+                        <span class="nav-icon">📚</span>
+                        <span class="nav-text">Basic Onboarding KT</span>
+                    </li>
+                    <li class="nav-item" data-module="leaves">
+                        <span class="nav-icon">🏖️</span>
+                        <span class="nav-text">Leaves</span>
+                    </li>
+                    <li class="nav-item" data-module="partner-managers">
+                        <span class="nav-icon">📇</span>
+                        <span class="nav-text">Partner Manager Directory</span>
+                    </li>
+                    <li class="nav-item" data-module="partner-alumni">
+                        <span class="nav-icon">🎓</span>
+                        <span class="nav-text">Partner Alumni</span>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Main Content Area -->
+            <main id="mainContent" class="main-content">
+                <!-- Module content will be dynamically loaded here -->
+            </main>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <!-- Modal Container -->
+    <div id="modalContainer"></div>
+
+    <!-- JavaScript Files -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/modules.js"></script>
+    <script src="js/modules-extended.js"></script>
+    <script src="js/modules-final.js"></script>
+</body>
+</html>

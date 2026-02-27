@@ -1,0 +1,451 @@
+/**
+ * Main Application Styles
+ * Global layout and structure styles for SAP Partner Sphere
+ */
+
+/* Login Screen */
+.login-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0854a0 0%, #0a6ed1 100%);
+}
+
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    padding: var(--sap-spacing-large);
+    background-color: var(--sap-content-background);
+    border-radius: var(--sap-border-radius-medium);
+    box-shadow: var(--sap-shadow-level-3);
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: var(--sap-spacing-xlarge);
+}
+
+.sap-logo {
+    color: var(--sap-primary-color);
+    font-size: var(--sap-font-size-xxlarge);
+    font-weight: var(--sap-font-weight-bold);
+    margin-bottom: var(--sap-spacing-small);
+}
+
+.tagline {
+    color: var(--sap-text-secondary);
+    font-size: var(--sap-font-size-medium);
+    font-weight: var(--sap-font-weight-normal);
+}
+
+.login-form {
+    margin-top: var(--sap-spacing-large);
+}
+
+/* Main Application Layout */
+.main-app {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Header */
+.app-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 3.5rem;
+    padding: 0 var(--sap-spacing-medium);
+    background-color: var(--sap-primary-color);
+    color: var(--sap-text-inverted);
+    box-shadow: var(--sap-shadow-level-1);
+    z-index: 100;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: var(--sap-spacing-medium);
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--sap-text-inverted);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--sap-border-radius-small);
+    transition: background-color var(--sap-transition-fast);
+}
+
+.menu-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.app-title {
+    font-size: var(--sap-font-size-large);
+    font-weight: var(--sap-font-weight-bold);
+    color: var(--sap-text-inverted);
+}
+
+.app-tagline {
+    font-size: var(--sap-font-size-small);
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: var(--sap-font-weight-normal);
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: var(--sap-spacing-medium);
+}
+
+.user-info {
+    font-size: var(--sap-font-size-normal);
+    color: var(--sap-text-inverted);
+}
+
+.app-header .fiori-button-transparent {
+    color: var(--sap-text-inverted);
+}
+
+.app-header .fiori-button-transparent:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* App Body */
+.app-body {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    padding: var(--sap-spacing-large);
+    overflow-y: auto;
+    background-color: var(--sap-background-color);
+}
+
+/* Module Container */
+.module-container {
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.module-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--sap-spacing-large);
+}
+
+.module-title {
+    font-size: var(--sap-font-size-xlarge);
+    font-weight: var(--sap-font-weight-bold);
+    color: var(--sap-text-color);
+}
+
+.module-actions {
+    display: flex;
+    gap: var(--sap-spacing-small);
+}
+
+/* Toast Notifications */
+.toast-container {
+    position: fixed;
+    top: 4rem;
+    right: var(--sap-spacing-medium);
+    z-index: var(--z-index-toast);
+    display: flex;
+    flex-direction: column;
+    gap: var(--sap-spacing-small);
+}
+
+.toast {
+    min-width: 300px;
+    max-width: 500px;
+    padding: var(--sap-spacing-medium);
+    background-color: var(--sap-content-background);
+    border-left: 4px solid;
+    border-radius: var(--sap-border-radius-small);
+    box-shadow: var(--sap-shadow-level-2);
+    display: flex;
+    align-items: flex-start;
+    gap: var(--sap-spacing-small);
+    animation: slideIn 0.3s ease;
+}
+
+.toast.toast-success {
+    border-left-color: var(--sap-success-color);
+}
+
+.toast.toast-error {
+    border-left-color: var(--sap-error-color);
+}
+
+.toast.toast-warning {
+    border-left-color: var(--sap-warning-color);
+}
+
+.toast.toast-info {
+    border-left-color: var(--sap-information-color);
+}
+
+.toast-icon {
+    font-size: var(--sap-font-size-large);
+    flex-shrink: 0;
+}
+
+.toast-content {
+    flex: 1;
+}
+
+.toast-title {
+    font-weight: var(--sap-font-weight-semibold);
+    margin-bottom: 0.25rem;
+}
+
+.toast-message {
+    font-size: var(--sap-font-size-small);
+    color: var(--sap-text-secondary);
+}
+
+.toast-close {
+    background: none;
+    border: none;
+    color: var(--sap-text-secondary);
+    cursor: pointer;
+    font-size: 1.25rem;
+    padding: 0;
+    line-height: 1;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: var(--sap-spacing-xlarge);
+    color: var(--sap-text-secondary);
+}
+
+.empty-state-icon {
+    font-size: 4rem;
+    margin-bottom: var(--sap-spacing-medium);
+    opacity: 0.3;
+}
+
+.empty-state-title {
+    font-size: var(--sap-font-size-large);
+    font-weight: var(--sap-font-weight-semibold);
+    margin-bottom: var(--sap-spacing-small);
+    color: var(--sap-text-color);
+}
+
+.empty-state-message {
+    font-size: var(--sap-font-size-normal);
+}
+
+/* Skill Tags */
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sap-spacing-small);
+}
+
+.skill-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.25rem 0.75rem;
+    background-color: var(--sap-primary-light);
+    color: var(--sap-primary-color);
+    border-radius: 1rem;
+    font-size: var(--sap-font-size-small);
+    font-weight: var(--sap-font-weight-semibold);
+}
+
+.skill-tag-remove {
+    background: none;
+    border: none;
+    color: var(--sap-primary-color);
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0;
+    line-height: 1;
+}
+
+.skill-tag-remove:hover {
+    color: var(--sap-error-color);
+}
+
+/* Tag Input */
+.tag-input-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sap-spacing-small);
+    padding: 0.5rem;
+    border: 1px solid var(--sap-border-color);
+    border-radius: var(--sap-border-radius-small);
+    background-color: var(--sap-content-background);
+    min-height: 2.5rem;
+    cursor: text;
+}
+
+.tag-input-container:focus-within {
+    border-color: var(--sap-primary-color);
+    box-shadow: 0 0 0 0.125rem rgba(8, 84, 160, 0.2);
+}
+
+.tag-input-field {
+    flex: 1;
+    min-width: 120px;
+    border: none;
+    outline: none;
+    font-family: var(--sap-font-family);
+    font-size: var(--sap-font-size-normal);
+    padding: 0.25rem;
+}
+
+/* Progress Bar */
+.progress-bar {
+    width: 100%;
+    height: 0.5rem;
+    background-color: var(--sap-border-light);
+    border-radius: 0.25rem;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background-color: var(--sap-primary-color);
+    transition: width var(--sap-transition-normal);
+}
+
+.progress-bar-fill.success {
+    background-color: var(--sap-success-color);
+}
+
+.progress-bar-fill.warning {
+    background-color: var(--sap-warning-color);
+}
+
+.progress-bar-fill.error {
+    background-color: var(--sap-error-color);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .menu-toggle {
+        display: block;
+    }
+    
+    .app-tagline {
+        display: none;
+    }
+    
+    .main-content {
+        padding: var(--sap-spacing-medium);
+    }
+}
+
+@media (max-width: 768px) {
+    .app-title {
+        font-size: var(--sap-font-size-medium);
+    }
+    
+    .user-info {
+        display: none;
+    }
+    
+    .module-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--sap-spacing-medium);
+    }
+    
+    .module-actions {
+        width: 100%;
+        flex-direction: column;
+    }
+    
+    .module-actions .fiori-button {
+        width: 100%;
+    }
+    
+    .toast-container {
+        left: var(--sap-spacing-small);
+        right: var(--sap-spacing-small);
+    }
+    
+    .toast {
+        min-width: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-container {
+        max-width: 100%;
+        margin: var(--sap-spacing-medium);
+    }
+    
+    .main-content {
+        padding: var(--sap-spacing-small);
+    }
+    
+    .app-header {
+        padding: 0 var(--sap-spacing-small);
+    }
+}
+
+/* Utility for hiding elements */
+.hidden {
+    display: none !important;
+}
+
+/* Utility for text truncation */
+.text-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Utility for no wrap */
+.text-nowrap {
+    white-space: nowrap;
+}
+
+/* Flexbox utilities */
+.d-flex {
+    display: flex;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.justify-content-between {
+    justify-content: space-between;
+}
+
+.gap-small {
+    gap: var(--sap-spacing-small);
+}
+
+.gap-medium {
+    gap: var(--sap-spacing-medium);
+}

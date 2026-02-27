@@ -1,0 +1,215 @@
+/**
+ * Modal Component Styles
+ * Reusable modal dialogs for forms and confirmations
+ */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: var(--z-index-modal);
+    animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.modal {
+    background-color: var(--sap-content-background);
+    border-radius: var(--sap-border-radius-medium);
+    box-shadow: var(--sap-shadow-level-3);
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal.large {
+    max-width: 900px;
+}
+
+.modal.small {
+    max-width: 400px;
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--sap-spacing-medium) var(--sap-spacing-large);
+    border-bottom: 1px solid var(--sap-border-light);
+}
+
+.modal-title {
+    font-size: var(--sap-font-size-large);
+    font-weight: var(--sap-font-weight-semibold);
+    color: var(--sap-text-color);
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    color: var(--sap-text-secondary);
+    cursor: pointer;
+    font-size: 1.5rem;
+    padding: 0.25rem;
+    line-height: 1;
+    border-radius: var(--sap-border-radius-small);
+    transition: all var(--sap-transition-fast);
+}
+
+.modal-close:hover {
+    background-color: var(--sap-hover-background);
+    color: var(--sap-text-color);
+}
+
+.modal-body {
+    padding: var(--sap-spacing-large);
+    overflow-y: auto;
+    flex: 1;
+}
+
+.modal-body::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-body::-webkit-scrollbar-track {
+    background: var(--sap-background-color);
+    border-radius: 4px;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+    background: var(--sap-border-color);
+    border-radius: 4px;
+}
+
+.modal-body::-webkit-scrollbar-thumb:hover {
+    background: var(--sap-text-secondary);
+}
+
+.modal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--sap-spacing-small);
+    padding: var(--sap-spacing-medium) var(--sap-spacing-large);
+    border-top: 1px solid var(--sap-border-light);
+}
+
+/* Form Layout in Modal */
+.modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sap-spacing-medium);
+}
+
+.modal-form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--sap-spacing-medium);
+}
+
+.modal-form-row.single-column {
+    grid-template-columns: 1fr;
+}
+
+/* Confirmation Modal Styles */
+.modal-confirmation {
+    text-align: center;
+}
+
+.modal-confirmation-icon {
+    font-size: 3rem;
+    margin-bottom: var(--sap-spacing-medium);
+}
+
+.modal-confirmation-icon.warning {
+    color: var(--sap-warning-color);
+}
+
+.modal-confirmation-icon.error {
+    color: var(--sap-error-color);
+}
+
+.modal-confirmation-icon.info {
+    color: var(--sap-information-color);
+}
+
+.modal-confirmation-title {
+    font-size: var(--sap-font-size-large);
+    font-weight: var(--sap-font-weight-semibold);
+    margin-bottom: var(--sap-spacing-small);
+    color: var(--sap-text-color);
+}
+
+.modal-confirmation-message {
+    font-size: var(--sap-font-size-normal);
+    color: var(--sap-text-secondary);
+    margin-bottom: var(--sap-spacing-medium);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .modal {
+        width: 95%;
+        max-height: 95vh;
+    }
+    
+    .modal-header {
+        padding: var(--sap-spacing-medium);
+    }
+    
+    .modal-body {
+        padding: var(--sap-spacing-medium);
+    }
+    
+    .modal-footer {
+        padding: var(--sap-spacing-medium);
+        flex-direction: column-reverse;
+    }
+    
+    .modal-footer .fiori-button {
+        width: 100%;
+    }
+    
+    .modal-form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal {
+        width: 100%;
+        max-height: 100vh;
+        border-radius: 0;
+    }
+    
+    .modal-title {
+        font-size: var(--sap-font-size-medium);
+    }
+}

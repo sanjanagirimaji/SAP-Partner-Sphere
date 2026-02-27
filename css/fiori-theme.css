@@ -1,0 +1,433 @@
+/**
+ * SAP Fiori 3 Theme
+ * Design tokens and CSS variables following SAP Fiori Design Guidelines
+ */
+
+:root {
+    /* SAP Fiori 3 Color Palette */
+    --sap-primary-color: #0854a0;
+    --sap-primary-hover: #0a6ed1;
+    --sap-primary-active: #053b6b;
+    --sap-primary-light: #d1e7f7;
+    
+    --sap-accent-color: #0070f2;
+    --sap-success-color: #107e3e;
+    --sap-warning-color: #e9730c;
+    --sap-error-color: #bb0000;
+    --sap-information-color: #0a6ed1;
+    
+    /* Semantic Colors */
+    --sap-positive: #107e3e;
+    --sap-negative: #bb0000;
+    --sap-critical: #e9730c;
+    --sap-neutral: #6a6d70;
+    
+    /* Background Colors */
+    --sap-background-color: #f5f6f7;
+    --sap-shell-background: #edeff0;
+    --sap-content-background: #ffffff;
+    --sap-hover-background: #f5f6f7;
+    --sap-selected-background: #e5f0fa;
+    
+    /* Text Colors */
+    --sap-text-color: #32363a;
+    --sap-text-secondary: #6a6d70;
+    --sap-text-disabled: #89919a;
+    --sap-text-inverted: #ffffff;
+    --sap-link-color: #0854a0;
+    
+    /* Border Colors */
+    --sap-border-color: #d9d9d9;
+    --sap-border-light: #e5e5e5;
+    --sap-border-hover: #0854a0;
+    
+    /* Shadows */
+    --sap-shadow-level-0: none;
+    --sap-shadow-level-1: 0 0.125rem 0.5rem 0 rgba(0, 0, 0, 0.15);
+    --sap-shadow-level-2: 0 0.25rem 1rem 0 rgba(0, 0, 0, 0.15);
+    --sap-shadow-level-3: 0 0.5rem 2rem 0 rgba(0, 0, 0, 0.2);
+    
+    /* Spacing (using 1rem = 16px as base) */
+    --sap-spacing-tiny: 0.25rem;        /* 4px */
+    --sap-spacing-small: 0.5rem;        /* 8px */
+    --sap-spacing-medium: 1rem;         /* 16px */
+    --sap-spacing-large: 1.5rem;        /* 24px */
+    --sap-spacing-xlarge: 2rem;         /* 32px */
+    
+    /* Typography */
+    --sap-font-family: '72', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --sap-font-size-small: 0.75rem;     /* 12px */
+    --sap-font-size-normal: 0.875rem;   /* 14px */
+    --sap-font-size-medium: 1rem;       /* 16px */
+    --sap-font-size-large: 1.125rem;    /* 18px */
+    --sap-font-size-xlarge: 1.5rem;     /* 24px */
+    --sap-font-size-xxlarge: 2rem;      /* 32px */
+    
+    --sap-font-weight-normal: 400;
+    --sap-font-weight-semibold: 600;
+    --sap-font-weight-bold: 700;
+    
+    --sap-line-height-normal: 1.4;
+    --sap-line-height-compact: 1.2;
+    
+    /* Border Radius */
+    --sap-border-radius-small: 0.25rem;
+    --sap-border-radius-medium: 0.5rem;
+    --sap-border-radius-large: 0.75rem;
+    
+    /* Transitions */
+    --sap-transition-fast: 0.15s ease;
+    --sap-transition-normal: 0.3s ease;
+    --sap-transition-slow: 0.5s ease;
+    
+    /* Z-index layers */
+    --z-index-base: 1;
+    --z-index-dropdown: 1000;
+    --z-index-modal: 2000;
+    --z-index-toast: 3000;
+}
+
+/* Global Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--sap-font-family);
+    font-size: var(--sap-font-size-normal);
+    line-height: var(--sap-line-height-normal);
+    color: var(--sap-text-color);
+    background-color: var(--sap-background-color);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography Utilities */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: var(--sap-font-weight-semibold);
+    line-height: var(--sap-line-height-compact);
+    color: var(--sap-text-color);
+}
+
+h1 { font-size: var(--sap-font-size-xxlarge); }
+h2 { font-size: var(--sap-font-size-xlarge); }
+h3 { font-size: var(--sap-font-size-large); }
+h4 { font-size: var(--sap-font-size-medium); }
+h5 { font-size: var(--sap-font-size-normal); }
+h6 { font-size: var(--sap-font-size-small); }
+
+p {
+    margin-bottom: var(--sap-spacing-medium);
+}
+
+a {
+    color: var(--sap-link-color);
+    text-decoration: none;
+    transition: color var(--sap-transition-fast);
+}
+
+a:hover {
+    color: var(--sap-primary-hover);
+    text-decoration: underline;
+}
+
+/* Fiori Button Styles */
+.fiori-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    font-family: var(--sap-font-family);
+    font-size: var(--sap-font-size-normal);
+    font-weight: var(--sap-font-weight-normal);
+    line-height: 1.4;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: var(--sap-border-radius-small);
+    transition: all var(--sap-transition-fast);
+    outline: none;
+    min-height: 2.25rem;
+    background-color: transparent;
+}
+
+.fiori-button:hover {
+    box-shadow: var(--sap-shadow-level-1);
+}
+
+.fiori-button:active {
+    transform: scale(0.98);
+}
+
+.fiori-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.4;
+}
+
+.fiori-button-primary {
+    background-color: var(--sap-primary-color);
+    color: var(--sap-text-inverted);
+    border-color: var(--sap-primary-color);
+}
+
+.fiori-button-primary:hover:not(:disabled) {
+    background-color: var(--sap-primary-hover);
+    border-color: var(--sap-primary-hover);
+}
+
+.fiori-button-secondary {
+    background-color: transparent;
+    color: var(--sap-primary-color);
+    border-color: var(--sap-primary-color);
+}
+
+.fiori-button-secondary:hover:not(:disabled) {
+    background-color: var(--sap-primary-light);
+}
+
+.fiori-button-transparent {
+    background-color: transparent;
+    color: var(--sap-text-color);
+    border-color: transparent;
+}
+
+.fiori-button-transparent:hover:not(:disabled) {
+    background-color: var(--sap-hover-background);
+}
+
+.fiori-button-success {
+    background-color: var(--sap-success-color);
+    color: var(--sap-text-inverted);
+    border-color: var(--sap-success-color);
+}
+
+.fiori-button-error {
+    background-color: var(--sap-error-color);
+    color: var(--sap-text-inverted);
+    border-color: var(--sap-error-color);
+}
+
+.fiori-button-small {
+    padding: 0.25rem 0.75rem;
+    font-size: var(--sap-font-size-small);
+    min-height: 1.75rem;
+}
+
+/* Fiori Input Styles */
+.fiori-input,
+.fiori-select,
+.fiori-textarea {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    font-family: var(--sap-font-family);
+    font-size: var(--sap-font-size-normal);
+    line-height: 1.4;
+    color: var(--sap-text-color);
+    background-color: var(--sap-content-background);
+    border: 1px solid var(--sap-border-color);
+    border-radius: var(--sap-border-radius-small);
+    outline: none;
+    transition: border-color var(--sap-transition-fast);
+    min-height: 2.25rem;
+}
+
+.fiori-input:hover,
+.fiori-select:hover,
+.fiori-textarea:hover {
+    border-color: var(--sap-border-hover);
+}
+
+.fiori-input:focus,
+.fiori-select:focus,
+.fiori-textarea:focus {
+    border-color: var(--sap-primary-color);
+    box-shadow: 0 0 0 0.125rem rgba(8, 84, 160, 0.2);
+}
+
+.fiori-input:disabled,
+.fiori-select:disabled,
+.fiori-textarea:disabled {
+    background-color: var(--sap-hover-background);
+    color: var(--sap-text-disabled);
+    cursor: not-allowed;
+}
+
+.fiori-textarea {
+    resize: vertical;
+    min-height: 5rem;
+}
+
+/* Fiori Checkbox and Radio */
+.fiori-checkbox,
+.fiori-radio {
+    width: 1.125rem;
+    height: 1.125rem;
+    cursor: pointer;
+}
+
+/* Fiori Toggle Switch */
+.fiori-toggle {
+    position: relative;
+    display: inline-block;
+    width: 3rem;
+    height: 1.5rem;
+}
+
+.fiori-toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.fiori-toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--sap-border-color);
+    transition: var(--sap-transition-fast);
+    border-radius: 1.5rem;
+}
+
+.fiori-toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 1.125rem;
+    width: 1.125rem;
+    left: 0.1875rem;
+    bottom: 0.1875rem;
+    background-color: white;
+    transition: var(--sap-transition-fast);
+    border-radius: 50%;
+}
+
+.fiori-toggle input:checked + .fiori-toggle-slider {
+    background-color: var(--sap-primary-color);
+}
+
+.fiori-toggle input:checked + .fiori-toggle-slider:before {
+    transform: translateX(1.5rem);
+}
+
+/* Status Badges */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    font-size: var(--sap-font-size-small);
+    font-weight: var(--sap-font-weight-semibold);
+    border-radius: 0.25rem;
+    white-space: nowrap;
+}
+
+.status-badge-success {
+    background-color: #e5f4ed;
+    color: var(--sap-success-color);
+}
+
+.status-badge-warning {
+    background-color: #fef3e8;
+    color: var(--sap-warning-color);
+}
+
+.status-badge-error {
+    background-color: #ffeaec;
+    color: var(--sap-error-color);
+}
+
+.status-badge-info {
+    background-color: var(--sap-primary-light);
+    color: var(--sap-primary-color);
+}
+
+.status-badge-neutral {
+    background-color: var(--sap-hover-background);
+    color: var(--sap-text-secondary);
+}
+
+/* Utility Classes */
+.text-primary { color: var(--sap-primary-color); }
+.text-success { color: var(--sap-success-color); }
+.text-warning { color: var(--sap-warning-color); }
+.text-error { color: var(--sap-error-color); }
+.text-secondary { color: var(--sap-text-secondary); }
+.text-disabled { color: var(--sap-text-disabled); }
+
+.bg-primary { background-color: var(--sap-primary-color); }
+.bg-success { background-color: var(--sap-success-color); }
+.bg-warning { background-color: var(--sap-warning-color); }
+.bg-error { background-color: var(--sap-error-color); }
+
+.mt-small { margin-top: var(--sap-spacing-small); }
+.mt-medium { margin-top: var(--sap-spacing-medium); }
+.mt-large { margin-top: var(--sap-spacing-large); }
+
+.mb-small { margin-bottom: var(--sap-spacing-small); }
+.mb-medium { margin-bottom: var(--sap-spacing-medium); }
+.mb-large { margin-bottom: var(--sap-spacing-large); }
+
+.p-small { padding: var(--sap-spacing-small); }
+.p-medium { padding: var(--sap-spacing-medium); }
+.p-large { padding: var(--sap-spacing-large); }
+
+/* Loading Spinner */
+.fiori-spinner {
+    border: 3px solid var(--sap-border-light);
+    border-top: 3px solid var(--sap-primary-color);
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Card Component */
+.fiori-card {
+    background-color: var(--sap-content-background);
+    border: 1px solid var(--sap-border-light);
+    border-radius: var(--sap-border-radius-medium);
+    box-shadow: var(--sap-shadow-level-1);
+    padding: var(--sap-spacing-medium);
+}
+
+.fiori-card-header {
+    font-size: var(--sap-font-size-large);
+    font-weight: var(--sap-font-weight-semibold);
+    margin-bottom: var(--sap-spacing-medium);
+    padding-bottom: var(--sap-spacing-small);
+    border-bottom: 1px solid var(--sap-border-light);
+}
+
+/* Error Message */
+.error-message {
+    color: var(--sap-error-color);
+    font-size: var(--sap-font-size-small);
+    margin-top: var(--sap-spacing-small);
+}
+
+/* Form Group */
+.form-group {
+    margin-bottom: var(--sap-spacing-medium);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: var(--sap-spacing-small);
+    font-weight: var(--sap-font-weight-semibold);
+    color: var(--sap-text-color);
+}
+
+.form-group.required label:after {
+    content: " *";
+    color: var(--sap-error-color);
+}
